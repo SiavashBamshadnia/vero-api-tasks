@@ -27,6 +27,10 @@ Add a new API call `PATCH constructionStages/{id}` which to allow the API users 
 
 Add another `DELETE constructionStages/{id}` API call which changes the `status` of the selected resource to `DELETED`.
 
+_The patch function is [here](https://github.com/SiavashBamshadnia/vero-api-tasks/blob/main/classes/ConstructionStages.php#L98)._
+
+_The delete function is [here](https://github.com/SiavashBamshadnia/vero-api-tasks/blob/main/classes/ConstructionStages.php#L159)._
+
 ## Task 2:
 Write a validation system which checks every posted field against a set of rules as follows:
 - `name` is maximum of 255 characters in length
@@ -40,6 +44,12 @@ Write a validation system which checks every posted field against a set of rules
 
 You should throw proper errors if a rule is not met.
 
+_Validators are [here](https://github.com/SiavashBamshadnia/vero-api-tasks/tree/main/classes/validation)._
+
+[This](https://github.com/SiavashBamshadnia/vero-api-tasks/blob/main/classes/exceptions/ValidationException.php) is their exception class that is just a simple extended class.
+
+_And I handled the way of returning exception responses in the [index.php](https://github.com/SiavashBamshadnia/vero-api-tasks/blob/main/index.php) file._
+
 ## Task 3:
 Set a logic which automatically calculates `duration` based on `start_date`, `end_date` and `durationUnit` as you know that:
 - `start_date` is required and is a valid date&time in iso8601 format i.e. `2022-12-31T14:59:00Z`
@@ -48,9 +58,14 @@ Set a logic which automatically calculates `duration` based on `start_date`, `en
 - `duration` is a positive float value calculated in precision of whole hours (ignore minutes and seconds if any)
 - a week has 7 days and one day has 24 hours
 
+_getDuration function is [here](https://github.com/SiavashBamshadnia/vero-api-tasks/blob/main/classes/ConstructionStagesCreate.php#L34)._
+
 ## Default task:
 Add a nice phpDoc to every method you create!
+
+_I did it. :)_
 
 ## Bonus task:
 Add a system which generates a documentation out of your API!
 
+_[Here](https://github.com/SiavashBamshadnia/vero-api-tasks/blob/main/classes/ApiDocumentation.php) it is. It's like a mini-swagger :)_
