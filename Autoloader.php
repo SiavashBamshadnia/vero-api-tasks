@@ -10,6 +10,16 @@ class Autoloader
 				require $file;
 				return true;
 			}
+			$file = "classes/validation/{$class}.php";
+			if (file_exists($file)) {
+				require $file;
+				return true;
+			}
+			$file = "classes/exceptions/{$class}.php";
+			if (file_exists($file)) {
+				require $file;
+				return true;
+			}
 			return false;
 		});
 	}
